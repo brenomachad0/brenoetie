@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiê & Breno · 03.10.2026</title>
+  <meta name="description" content="Tiê & Breno vão casar — 03 de outubro de 2026, Brasília. Confirme sua presença." />
+  <meta property="og:title" content="Tiê & Breno · 03.10.2026" />
+  <meta property="og:description" content="Vamos casar! Confirme sua presença." />
+  <meta property="og:image" content="assets/img/hero-sunset.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="pre-inner">
+      <div class="pre-names">Tiê <span class="script-amp">&amp;</span> Breno</div>
+      <div class="pre-bar"></div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#top" class="nav-logo">T <span class="script-amp">&amp;</span> B</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#story" data-i18n="nav.story">História</a>
+        <a href="#gallery" data-i18n="nav.gallery">Galeria</a>
+        <a href="#details" data-i18n="nav.info">Local</a>
+        <a href="#rsvp" data-i18n="nav.rsvp">Presença</a>
+        <a href="#gifts" data-i18n="nav.gifts">Presentes</a>
+      </div>
+      <button class="lang-toggle" aria-label="Idioma / Language">
+        <span data-lang="pt" class="active">PT</span>/<span data-lang="en">EN</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero-bg">
+      <img src="assets/img/hero-sunset.jpg" alt="Tiê e Breno ao pôr do sol em Brasília" />
+    </div>
+    <canvas id="petals-canvas"></canvas>
+    <div class="hero-flora tl"></div>
+    <div class="hero-flora br"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow eyebrow"><span data-i18n="hero.eyebrow">Vamos casar</span></div>
+      <h1 class="hero-names display">
+        <span class="l1">Tiê</span>
+        <span class="amp">&amp;</span>
+        <span class="l2">Breno</span>
+      </h1>
+      <div class="hero-sub">
+        <span data-i18n="hero.date">03 · Outubro · 2026</span>
+        <i class="dot"></i>
+        <span data-i18n="hero.place">Brasília · DF</span>
+      </div>
+    </div>
+    <a href="#countdown" class="scroll-cue">
+      <span data-i18n="hero.cue">role para descobrir</span>
+      <span class="line"></span>
+    </a>
+  </header>
+
+  <!-- COUNTDOWN -->
+  <section class="section countdown" id="countdown">
+    <div class="wrap">
+      <div class="eyebrow reveal" data-i18n="count.eyebrow">Contagem regressiva</div>
+      <h2 class="count-title reveal" data-i18n="count.title">Faltam poucos instantes para o nosso sim</h2>
+      <div class="count-grid" id="count-grid">
+        <div class="count-cell"><div class="count-num" id="cd-days">0</div><div class="count-label" data-i18n="count.days">dias</div></div>
+        <div class="count-cell"><div class="count-num" id="cd-hours">00</div><div class="count-label" data-i18n="count.hours">horas</div></div>
+        <div class="count-cell"><div class="count-num" id="cd-min">00</div><div class="count-label" data-i18n="count.min">minutos</div></div>
+        <div class="count-cell"><div class="count-num" id="cd-sec">00</div><div class="count-label" data-i18n="count.sec">segundos</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section story" id="story">
+    <div class="wrap">
+      <div class="story-intro">
+        <div class="header-sprig top reveal"></div>
+        <div class="eyebrow reveal" data-i18n="story.eyebrow">Nossa história</div>
+        <h2 class="reveal" data-i18n="story.title">De um pôr do sol<br>para a vida inteira</h2>
+        <p class="reveal" data-i18n="story.lead"></p>
+      </div>
+
+      <!-- Beat 1 -->
+      <article class="beat">
+        <div class="beat-media"><img src="assets/img/family-01.jpg" alt="Família" /><span class="tag" data-i18n="story.b1.tag"></span></div>
+        <div class="beat-text">
+          <div class="beat-num" data-i18n="story.b1.num">i.</div>
+          <h3 data-i18n="story.b1.h"></h3>
+          <p data-i18n="story.b1.p1"></p>
+          <p data-i18n="story.b1.p2"></p>
+        </div>
+      </article>
+
+      <!-- Beat 2 -->
+      <article class="beat reverse">
+        <div class="beat-media"><img src="assets/img/couple-03.jpg" alt="O casal" /><span class="tag" data-i18n="story.b2.tag"></span></div>
+        <div class="beat-text">
+          <div class="beat-num" data-i18n="story.b2.num">ii.</div>
+          <h3 data-i18n="story.b2.h"></h3>
+          <p data-i18n="story.b2.p1"></p>
+        </div>
+      </article>
+
+      <!-- Beat 3 -->
+      <article class="beat">
+        <div class="beat-media"><img src="assets/img/story-surprise.jpg" alt="O plano" /><span class="tag" data-i18n="story.b3.tag"></span></div>
+        <div class="beat-text">
+          <div class="beat-num" data-i18n="story.b3.num">iii.</div>
+          <h3 data-i18n="story.b3.h"></h3>
+          <p data-i18n="story.b3.p1"></p>
+          <p data-i18n="story.b3.p2"></p>
+        </div>
+      </article>
+
+      <!-- Beat 4 -->
+      <article class="beat reverse">
+        <div class="beat-media"><img src="assets/img/prop-kiss.jpg" alt="O pedido" /><span class="tag" data-i18n="story.b4.tag"></span></div>
+        <div class="beat-text">
+          <div class="beat-num" data-i18n="story.b4.num">iv.</div>
+          <h3 class="display" data-i18n="story.b4.h"></h3>
+          <p data-i18n="story.b4.p1"></p>
+        </div>
+      </article>
+
+      <!-- Beat 5 -->
+      <article class="beat">
+        <div class="beat-media"><img src="assets/img/prop-night.jpg" alt="O sim" /><span class="tag" data-i18n="story.b5.tag"></span></div>
+        <div class="beat-text">
+          <div class="beat-num" data-i18n="story.b5.num">v.</div>
+          <h3 data-i18n="story.b5.h"></h3>
+          <p data-i18n="story.b5.p1"></p>
+        </div>
+      </article>
+    </div>
+
+    <!-- PULL QUOTE -->
+    <div class="pullquote wrap">
+      <blockquote data-i18n="quote">“E de repente, para sempre não parecia tempo suficiente.”</blockquote>
+      <span class="who" data-i18n="quote.who">Tiê & Breno</span>
+    </div>
+    <div class="floral-divider"></div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section gallery" id="gallery">
+    <div class="wrap">
+      <div class="gallery-head">
+        <div>
+          <div class="eyebrow reveal" data-i18n="gallery.eyebrow">Momentos</div>
+          <h2 class="reveal" data-i18n="gallery.title">Nossos instantes favoritos</h2>
+        </div>
+        <span class="eyebrow" style="color:var(--sage)" data-i18n="gallery.hint">clique para ampliar</span>
+      </div>
+      <div class="grid">
+        <figure><img src="assets/img/couple-01.jpg" alt="" /></figure>
+        <figure><img src="assets/img/prop-kiss.jpg" alt="" /></figure>
+        <figure><img src="assets/img/couple-04.jpg" alt="" /></figure>
+        <figure><img src="assets/img/g-night2.jpg" alt="" /></figure>
+        <figure><img src="assets/img/family-02.jpg" alt="" /></figure>
+        <figure><img src="assets/img/g-laugh.jpg" alt="" /></figure>
+        <figure><img src="assets/img/couple-02.jpg" alt="" /></figure>
+        <figure><img src="assets/img/g-wide.jpg" alt="" /></figure>
+        <figure><img src="assets/img/g-golden.jpg" alt="" /></figure>
+        <figure><img src="assets/img/couple-05.jpg" alt="" /></figure>
+        <figure><img src="assets/img/family-01.jpg" alt="" /></figure>
+        <figure><img src="assets/img/g-topdown.jpg" alt="" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILS -->
+  <section class="section details" id="details">
+    <div class="wrap">
+      <div class="details-head">
+        <div class="header-sprig reveal"></div>
+        <div class="eyebrow reveal" data-i18n="details.eyebrow">Quando & onde</div>
+        <h2 class="reveal" data-i18n="details.title">O grande dia</h2>
+      </div>
+      <div class="venues">
+        <div class="venue reveal">
+          <div class="ico">⛪</div>
+          <div class="kicker" data-i18n="details.ceremony.kicker">Cerimônia</div>
+          <h3 data-i18n="details.ceremony.name">Paróquia do Verbo Divino</h3>
+          <div class="time">15h00</div>
+          <address data-i18n="details.ceremony.addr"></address>
+          <a class="btn-map" id="map-church" target="_blank" rel="noopener" data-i18n="details.map">Ver no mapa</a>
+        </div>
+        <div class="venue reveal">
+          <div class="ico">🌾</div>
+          <div class="kicker" data-i18n="details.reception.kicker">Recepção</div>
+          <h3 data-i18n="details.reception.name">Núcleo Rural Lago Oeste</h3>
+          <div class="time" data-i18n="details.reception.time">logo após a cerimônia</div>
+          <address data-i18n="details.reception.addr"></address>
+          <a class="btn-map" id="map-venue" target="_blank" rel="noopener" data-i18n="details.map">Ver no mapa</a>
+        </div>
+      </div>
+
+      <div class="dress reveal">
+        <div class="kicker" data-i18n="dress.kicker">Traje</div>
+        <p data-i18n="dress.text">Traje social · esporte fino</p>
+        <div class="palette-dots" title="">
+          <i style="background:var(--sage)"></i>
+          <i style="background:var(--orange)"></i>
+          <i style="background:var(--tomato)"></i>
+          <i style="background:var(--pink)"></i>
+          <i style="background:var(--magenta)"></i>
+        </div>
+        <div class="eyebrow" style="margin-top:.8rem;color:var(--ink-soft)" data-i18n="dress.note">Inspire-se nas nossas cores</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="section rsvp" id="rsvp">
+    <div class="narrow">
+      <div class="rsvp-head">
+        <div class="header-sprig reveal"></div>
+        <div class="eyebrow reveal" data-i18n="rsvp.eyebrow">Confirmação</div>
+        <h2 class="reveal" data-i18n="rsvp.title">Você faz parte<br>dessa história</h2>
+        <p class="reveal" data-i18n="rsvp.lead"></p>
+      </div>
+      <form class="rsvp-form" id="rsvp-form" novalidate>
+        <div class="field">
+          <label for="nome" data-i18n="rsvp.name">Nome completo</label>
+          <input type="text" id="nome" name="nome" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="acompanhantes" data-i18n="rsvp.guests">Número de acompanhantes</label>
+          <select id="acompanhantes" name="acompanhantes">
+            <option value="0">0</option><option value="1">1</option>
+            <option value="2">2</option><option value="3">3</option>
+            <option value="4">4</option><option value="5">5+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label data-i18n="rsvp.attend">Você vai comparecer?</label>
+          <div class="radio-row">
+            <label class="radio-pill"><input type="radio" name="presenca" value="sim" checked /><span data-i18n="rsvp.yes">Sim, eu vou!</span></label>
+            <label class="radio-pill"><input type="radio" name="presenca" value="nao" /><span data-i18n="rsvp.no">Não poderei ir</span></label>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit" data-i18n="rsvp.submit">Confirmar presença</button>
+        <div class="form-msg" id="form-msg" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- GIFTS -->
+  <section class="section gifts" id="gifts">
+    <div class="wrap">
+      <div class="gifts-head">
+        <div class="header-sprig reveal"></div>
+        <div class="eyebrow reveal" data-i18n="gifts.eyebrow">Presentes</div>
+        <h2 class="reveal" data-i18n="gifts.title">Nossa lista de sonhos</h2>
+        <p class="reveal" data-i18n="gifts.lead"></p>
+      </div>
+
+      <div class="gift-grid">
+        <div class="gift-card"><div class="gift-emoji">🌅</div><h4 data-i18n="gift.1.n"></h4><p data-i18n="gift.1.d"></p><div class="gift-price">R$ 50</div><button class="gift-btn" data-copy-pix data-i18n="gifts.give">Presentear</button></div>
+        <div class="gift-card"><div class="gift-emoji">☕</div><h4 data-i18n="gift.2.n"></h4><p data-i18n="gift.2.d"></p><div class="gift-price">R$ 80</div><button class="gift-btn" data-copy-pix data-i18n="gifts.give">Presentear</button></div>
+        <div class="gift-card"><div class="gift-emoji">🕯️</div><h4 data-i18n="gift.3.n"></h4><p data-i18n="gift.3.d"></p><div class="gift-price">R$ 120</div><button class="gift-btn" data-copy-pix data-i18n="gifts.give">Presentear</button></div>
+        <div class="gift-card"><div class="gift-emoji">✈️</div><h4 data-i18n="gift.4.n"></h4><p data-i18n="gift.4.d"></p><div class="gift-price">R$ 250</div><button class="gift-btn" data-copy-pix data-i18n="gifts.give">Presentear</button></div>
+        <div class="gift-card"><div class="gift-emoji">🏝️</div><h4 data-i18n="gift.5.n"></h4><p data-i18n="gift.5.d"></p><div class="gift-price">R$ 300</div><button class="gift-btn" data-copy-pix data-i18n="gifts.give">Presentear</button></div>
+        <div class="gift-card"><div class="gift-emoji">🥂</div><h4 data-i18n="gift.6.n"></h4><p data-i18n="gift.6.d"></p><div class="gift-price">R$ 100</div><button class="gift-btn" data-copy-pix data-i18n="gifts.give">Presentear</button></div>
+        <div class="gift-card"><div class="gift-emoji">🧱</div><h4 data-i18n="gift.7.n"></h4><p data-i18n="gift.7.d"></p><div class="gift-price">R$ 150</div><button class="gift-btn" data-copy-pix data-i18n="gifts.give">Presentear</button></div>
+        <div class="gift-card"><div class="gift-emoji">💃</div><h4 data-i18n="gift.8.n"></h4><p data-i18n="gift.8.d"></p><div class="gift-price">R$ 90</div><button class="gift-btn" data-copy-pix data-i18n="gifts.give">Presentear</button></div>
+      </div>
+
+      <div class="pix-panel reveal">
+        <div class="qr"><img src="assets/pix-qr.png" alt="QR Code Pix" /></div>
+        <div class="pix-info">
+          <h3 data-i18n="pix.title">Chave Pix</h3>
+          <div class="who" data-i18n="pix.who">Breno Neiva Machado · Santander</div>
+          <div class="pix-copy">
+            <span class="pix-key" id="pix-key">(61) 99626-1957</span>
+            <button class="btn-copy" data-copy-pix data-i18n="pix.copycode">Copiar Pix copia-e-cola</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="floral-divider"></div>
+    <div class="amp display">Tiê <span class="i">&amp;</span> Breno</div>
+    <div class="hashtag" data-i18n="footer.hashtag">#BrenoETie2026</div>
+    <div class="date" data-i18n="footer.date">03 de Outubro de 2026 · Brasília</div>
+    <div class="credit" data-i18n="footer.credit"></div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" aria-label="Fechar">&times;</button>
+    <button class="lb-nav lb-prev" aria-label="Anterior">&#8249;</button>
+    <img src="" alt="" />
+    <button class="lb-nav lb-next" aria-label="Próxima">&#8250;</button>
+  </div>
+
+  <!-- MUSIC -->
+  <button class="music-toggle" id="music-toggle" aria-label="Música">
+    <div class="music-bars"><i></i><i></i><i></i><i></i></div>
+  </button>
+  <audio id="bg-music" src="assets/music.mp3" loop preload="none"></audio>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script>
+    // mapa de links
+    window.addEventListener("DOMContentLoaded", () => {});
+  </script>
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+  </script>
+  <script type="module" src="js/main.js"></script>
+  <script>
+    // set map hrefs (após CONFIG carregar via módulo, usamos valores diretos)
+    document.getElementById("map-church").href = "https://www.google.com/maps/search/?api=1&query=Par%C3%B3quia+do+Verbo+Divino+SGAN+609+Asa+Norte+Bras%C3%ADlia";
+    document.getElementById("map-venue").href = "https://www.google.com/maps/search/?api=1&query=N%C3%BAcleo+Rural+Lago+Oeste+Rua+4+Ch%C3%A1cara+5+Sobradinho+DF";
+  </script>
+</body>
+</html>
