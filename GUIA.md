@@ -79,18 +79,25 @@ Tudo fica em `js/main.js`:
 
 ---
 
-## 🚀 Publicar de graça
+## 🚀 Publicado (GitHub Pages)
 
-**Opção mais fácil — Netlify Drop:**
-1. Acesse https://app.netlify.com/drop
-2. Arraste a pasta `site` inteira pra janela.
-3. Pronto — recebe uma URL na hora (dá pra trocar o nome depois).
+O site já está **no ar**:
 
-**Outras opções:** Vercel, GitHub Pages, Cloudflare Pages — todas funcionam
-(o site é estático e usa bibliotecas via CDN).
+### 👉 https://brenomachad0.github.io/brenoetie/
 
-Quando quiserem um domínio próprio (ex: `brenoetie.com.br`), dá pra apontar
-pra qualquer uma dessas hospedagens.
+Repositório: https://github.com/brenomachad0/brenoetie
+
+**Para atualizar o site depois de editar qualquer arquivo**, rode dentro da
+pasta `site`:
+
+```bash
+git add -A && git commit -m "ajustes" && git push
+```
+
+Em ~1 minuto o GitHub Pages publica a nova versão automaticamente.
+
+**Domínio próprio** (ex: `brenoetie.com.br`): dá pra apontar pro GitHub Pages
+(Settings → Pages → Custom domain) quando quiserem.
 
 ---
 
