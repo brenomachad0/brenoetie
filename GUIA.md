@@ -56,20 +56,21 @@ Já está pronta (`assets/music.mp3`). Toca ao primeiro clique/toque na página
 (navegadores bloqueiam autoplay). O botão redondo no canto liga/desliga.
 Para trocar, basta substituir o arquivo `assets/music.mp3`.
 
-### 3) Cartão de crédito 💳 (opcional)
-Hoje o botão "Pagar com cartão de crédito" aparece como **"em breve"**.
-Para ativá-lo, crie um **link de pagamento** e cole a URL em
-`js/main.js` → `CONFIG.CARD_URL`.
+### 3) Cartão de crédito 💳 (já ativo)
+O botão "Pagar com cartão de crédito" já está ligado ao seu link do Mercado Pago
+(valor aberto): `CONFIG.CARD_URL` em `js/main.js` =
+`https://link.mercadopago.com.br/tiebreno`. Aceita cartão parcelado, Pix e boleto.
 
-Melhor caminho (conta pessoa física, com CPF, sem abrir empresa):
-- **Mercado Pago** — o mais simples e reconhecido pelos convidados. App → "Link de
-  pagamento" → aceita cartão (com parcelamento), Pix e boleto. Cai na sua conta.
-- **Asaas** — também ótimo (conta grátis com CPF). Crie um "Link de pagamento".
-  Bom se quiser Pix + cartão no mesmo link.
+⚠️ **Testado:** esse link de **valor aberto NÃO aceita valor pela URL** (parâmetros
+como `?amount=` são ignorados). Por isso o convidado **digita o valor** do presente
+na tela do Mercado Pago (há uma nota no site avisando isso).
 
-Dica: dá pra criar **um link com valor em aberto** (o convidado digita o valor) e
-usar esse mesmo link no botão. Ambos cobram uma taxa por transação no cartão —
-o Pix continua sendo o caminho sem taxa.
+**Se quiser que o valor já venha preenchido** (melhor experiência), crie no app do
+Mercado Pago **um link de valor fixo para cada preço** (R$70, R$100, R$160, R$180,
+R$200, R$240, R$300, R$500, R$600, R$1.000) e me mande as URLs — aí cada botão de
+presente abre o link com o valor certo. (Mais trabalho de setup, mas fica redondo.)
+
+O Pix continua sem taxa; o cartão tem taxa por transação do Mercado Pago.
 
 ### 4) Horário da recepção ⏰
 Está como **"logo após a cerimônia"**. Quando tiver o horário, edite em

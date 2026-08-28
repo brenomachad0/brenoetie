@@ -449,6 +449,8 @@ form.rsvp-form { display: grid; gap: 1.3rem; }
 .btn-card:hover { background: var(--sage); color:#fff; }
 .btn-card.soon { opacity:.6; cursor:default; border-style:dashed; }
 .btn-card.soon:hover { background:none; color: var(--sage); }
+.card-note { margin-top:.7rem; font-size:.76rem; color: var(--ink-soft); }
+.btn-card.soon ~ .card-note { display: none; }
 @media (max-width: 620px){ .pix-panel { grid-template-columns: 1fr; text-align:center; justify-items:center; } }
 
 /* ============================================================

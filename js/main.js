@@ -21,8 +21,8 @@ const CONFIG = {
   MAP_VENUE: "https://www.google.com/maps/search/?api=1&query=N%C3%BAcleo+Rural+Lago+Oeste+Rua+4+Ch%C3%A1cara+5+Sobradinho+DF",
   PIX_PAYLOAD: "00020126360014br.gov.bcb.pix0114+55619962619575204000053039865802BR5919BRENO NEIVA MACHADO6008BRASILIA62070503***63042709",
   PIX_KEY: "(61) 99626-1957",
-  // Link de pagamento com cartão (ASAAS/Mercado Pago). Vazio = botão fica "em breve". Ver GUIA.md.
-  CARD_URL: "",
+  // Link de pagamento com cartão (Mercado Pago, valor aberto). Vazio = botão "em breve". Ver GUIA.md.
+  CARD_URL: "https://link.mercadopago.com.br/tiebreno",
 };
 
 /* ------------------------------------------------------------------
@@ -87,7 +87,7 @@ const I18N = {
     "rsvp.fillname": "Por favor, preencha seu nome.",
     "rsvp.notset": "Formulário ainda não conectado à planilha (ver GUIA.md).",
     "gifts.eyebrow": "Presentes", "gifts.title": "Nossa lista de sonhos",
-    "gifts.lead": "A presença de cada um de vocês é o nosso maior presente!<br><br>Mas, se desejarem nos presentear, nossas contribuições serão destinadas à nossa lua de mel. Também receberemos com muito carinho qualquer presente físico escolhido especialmente para nós.",
+    "gifts.lead": "A presença de cada um de vocês é o nosso maior presente!<br><br>Mas, se desejarem nos presentear, as contribuições serão destinadas à nossa lua de mel. Também receberemos com muito carinho qualquer presente físico escolhido especialmente para nós.",
     "gifts.give": "Presentear",
     "gift.1.n": "Um pôr do sol a dois", "gift.1.d": "Para repetirmos aquele fim de tarde que mudou tudo.",
     "gift.2.n": "Cafés da manhã na cama", "gift.2.d": "Um mês de manhãs preguiçosas e sem pressa.",
@@ -103,6 +103,7 @@ const I18N = {
     "pix.title": "Chave Pix", "pix.who": "Breno Neiva Machado · Santander",
     "pix.copy": "Copiar código", "pix.copied": "Copiado! ✓", "pix.copycode": "Copiar Pix copia-e-cola",
     "pix.card": "Pagar com cartão de crédito", "pix.card_soon": "Cartão de crédito · em breve",
+    "pix.card_note": "No cartão, é só digitar o valor do presente escolhido 💛",
     "footer.hashtag": "#BrenoETie2026",
     "footer.date": "03 de Outubro de 2026 · Brasília",
     "footer.credit": 'Feito com carinho · Fotos por <a href="#">Frederico Gomes Photography</a>',
@@ -181,6 +182,7 @@ const I18N = {
     "pix.title": "Pix key", "pix.who": "Breno Neiva Machado · Santander",
     "pix.copy": "Copy code", "pix.copied": "Copied! ✓", "pix.copycode": "Copy Pix code",
     "pix.card": "Pay by credit card", "pix.card_soon": "Credit card · coming soon",
+    "pix.card_note": "On card, just type the amount of your chosen gift 💛",
     "footer.hashtag": "#BrenoETie2026",
     "footer.date": "October 3, 2026 · Brasília",
     "footer.credit": 'Made with love · Photos by <a href="#">Frederico Gomes Photography</a>',
