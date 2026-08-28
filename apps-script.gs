@@ -21,14 +21,16 @@ function doPost(e) {
 
     // Cabeçalho na primeira vez
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(['Data/Hora', 'Nome', 'Acompanhantes', 'Presença', 'Idioma']);
+      sheet.appendRow(['Data/Hora', 'Nome', 'Adultos', 'Crianças', 'Idade das crianças', 'Presença', 'Idioma']);
     }
 
     var data = JSON.parse(e.postData.contents);
     sheet.appendRow([
       new Date(),
       data.nome || '',
-      data.acompanhantes || '0',
+      data.adultos || '1',
+      data.criancas || '0',
+      data.idades || '',
       data.presenca === 'nao' ? 'Não vai' : 'Confirmado',
       data.lang || ''
     ]);

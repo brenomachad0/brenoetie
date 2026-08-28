@@ -56,7 +56,22 @@ Já está pronta (`assets/music.mp3`). Toca ao primeiro clique/toque na página
 (navegadores bloqueiam autoplay). O botão redondo no canto liga/desliga.
 Para trocar, basta substituir o arquivo `assets/music.mp3`.
 
-### 3) Horário da recepção ⏰
+### 3) Cartão de crédito 💳 (opcional)
+Hoje o botão "Pagar com cartão de crédito" aparece como **"em breve"**.
+Para ativá-lo, crie um **link de pagamento** e cole a URL em
+`js/main.js` → `CONFIG.CARD_URL`.
+
+Melhor caminho (conta pessoa física, com CPF, sem abrir empresa):
+- **Mercado Pago** — o mais simples e reconhecido pelos convidados. App → "Link de
+  pagamento" → aceita cartão (com parcelamento), Pix e boleto. Cai na sua conta.
+- **Asaas** — também ótimo (conta grátis com CPF). Crie um "Link de pagamento".
+  Bom se quiser Pix + cartão no mesmo link.
+
+Dica: dá pra criar **um link com valor em aberto** (o convidado digita o valor) e
+usar esse mesmo link no botão. Ambos cobram uma taxa por transação no cartão —
+o Pix continua sendo o caminho sem taxa.
+
+### 4) Horário da recepção ⏰
 Está como **"logo após a cerimônia"**. Quando tiver o horário, edite em
 `js/main.js` as chaves `details.reception.time` (PT e EN).
 

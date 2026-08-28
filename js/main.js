@@ -21,6 +21,8 @@ const CONFIG = {
   MAP_VENUE: "https://www.google.com/maps/search/?api=1&query=N%C3%BAcleo+Rural+Lago+Oeste+Rua+4+Ch%C3%A1cara+5+Sobradinho+DF",
   PIX_PAYLOAD: "00020126360014br.gov.bcb.pix0114+55619962619575204000053039865802BR5919BRENO NEIVA MACHADO6008BRASILIA62070503***63042709",
   PIX_KEY: "(61) 99626-1957",
+  // Link de pagamento com cartão (ASAAS/Mercado Pago). Vazio = botão fica "em breve". Ver GUIA.md.
+  CARD_URL: "",
 };
 
 /* ------------------------------------------------------------------
@@ -53,7 +55,7 @@ const I18N = {
     "story.b3.p2": "O coração já sabia a resposta antes mesmo da pergunta.",
     "story.b4.num": "iv.", "story.b4.tag": "a pergunta",
     "story.b4.h": "“Casa comigo?”",
-    "story.b4.p1": "O sol tocou o horizonte, um joelho tocou o chão, e três palavras mudaram tudo. Contra a luz dourada, o futuro inteiro coube num só instante.",
+    "story.b4.p1": "O sol tocou o horizonte, um joelho tocou o chão, e duas palavras mudaram tudo. Contra a luz dourada, o futuro inteiro coube num só instante.",
     "story.b5.num": "v.", "story.b5.tag": "o sim",
     "story.b5.h": "E as luzes da cidade viraram testemunhas",
     "story.b5.p1": "Quando a noite chegou, já não éramos mais dois planejando um pedido — éramos dois começando o resto da vida. Agora queremos você ao nosso lado para celebrar.",
@@ -62,17 +64,20 @@ const I18N = {
     "gallery.eyebrow": "Momentos", "gallery.title": "Nossos instantes favoritos",
     "gallery.hint": "clique para ampliar",
     "details.eyebrow": "Quando & onde", "details.title": "O grande dia",
-    "details.ceremony.kicker": "Cerimônia", "details.ceremony.name": "Paróquia do Verbo Divino",
+    "details.ceremony.kicker": "Cerimônia", "details.ceremony.name": "Paróquia Verbo Divino",
     "details.ceremony.addr": "SGAN 609, Módulo C · L2 Norte<br>Asa Norte · Brasília — DF",
-    "details.reception.kicker": "Recepção", "details.reception.name": "Núcleo Rural Lago Oeste",
-    "details.reception.addr": "Rua 4, Chácara 5<br>Lago Oeste · Sobradinho — DF",
+    "details.reception.kicker": "Recepção", "details.reception.name": "Local a ser informado",
+    "details.reception.addr": "Em breve divulgaremos o endereço 🤍",
     "details.reception.time": "logo após a cerimônia",
     "details.map": "Ver no mapa",
     "dress.kicker": "Traje", "dress.text": "Traje social · esporte fino",
+    "dress.relax": "Vá vestido de você! Queremos todos confortáveis.",
     "dress.note": "Inspire-se nas nossas cores",
     "rsvp.eyebrow": "Confirmação", "rsvp.title": "Você faz parte<br>dessa história",
-    "rsvp.lead": "Sua presença é o nosso maior presente. Por favor, confirme até 15 de setembro de 2026.",
+    "rsvp.lead": "Depois de tantos anos dividindo a vida, chegou o momento de celebrar diante das pessoas que amamos o compromisso de continuar escolhendo um ao outro.<br><br>Este casamento é a celebração da nossa história, de tudo o que vivemos até aqui e, principalmente, de tudo o que ainda queremos construir juntos.<br><br>Nada faria mais sentido do que viver esse dia cercados por pessoas que fazem parte da nossa vida e que, de alguma forma, também fazem parte da nossa história.<br><br>Ter vocês conosco torna este momento ainda mais especial. Por favor, confirme até <strong>15 de setembro de 2026</strong>.",
     "rsvp.name": "Nome completo", "rsvp.guests": "Número de acompanhantes",
+    "rsvp.adults": "Quantos adultos", "rsvp.children": "Quantas crianças",
+    "rsvp.ages": "Idade das crianças", "rsvp.ages_ph": "ex: 3 e 5 anos",
     "rsvp.attend": "Você vai comparecer?", "rsvp.yes": "Sim, eu vou!", "rsvp.no": "Não poderei ir",
     "rsvp.submit": "Confirmar presença",
     "rsvp.sending": "Enviando...",
@@ -82,7 +87,7 @@ const I18N = {
     "rsvp.fillname": "Por favor, preencha seu nome.",
     "rsvp.notset": "Formulário ainda não conectado à planilha (ver GUIA.md).",
     "gifts.eyebrow": "Presentes", "gifts.title": "Nossa lista de sonhos",
-    "gifts.lead": "O que mais queremos é te ver na festa. Mas se quiser nos presentear, escolhemos alguns “presentes” cheios de significado — tudo via Pix, com todo carinho.",
+    "gifts.lead": "A presença de cada um de vocês é o nosso maior presente!<br><br>Mas, se desejarem nos presentear, nossas contribuições serão destinadas à nossa lua de mel. Também receberemos com muito carinho qualquer presente físico escolhido especialmente para nós.",
     "gifts.give": "Presentear",
     "gift.1.n": "Um pôr do sol a dois", "gift.1.d": "Para repetirmos aquele fim de tarde que mudou tudo.",
     "gift.2.n": "Cafés da manhã na cama", "gift.2.d": "Um mês de manhãs preguiçosas e sem pressa.",
@@ -93,9 +98,11 @@ const I18N = {
     "gift.7.n": "Babá para um date night", "gift.7.d": "Para a gente fugir a dois — enquanto alguém segura as pontas com a criançada.",
     "gift.8.n": "A primeira dança", "gift.8.d": "Aquela música, a gente rodando, o mundo parando.",
     "gift.9.n": "Flores da estação", "gift.9.d": "Para a casa nunca perder o cheiro de festa.",
-    "gifts.credits": "Fotos ilustrativas: David N Cooper, happyskrappy, Swami Stream, mrlins, Sam Howzit e tdlucas5000 (CC BY) · demais em domínio público (CC0) · via Openverse.",
+    "gift.10.n": "O chefão da lista", "gift.10.d": "Você chegou no presentão! 😄 Ajuda a gente a viver a lua de mel dos sonhos — prometemos foto da varanda sobre o mar.",
+    "gifts.credits": "Fotos ilustrativas: David N Cooper, happyskrappy, Swami Stream, mrlins, Sam Howzit, tdlucas5000 e MattJP (CC BY) · demais em domínio público (CC0) · via Openverse.",
     "pix.title": "Chave Pix", "pix.who": "Breno Neiva Machado · Santander",
     "pix.copy": "Copiar código", "pix.copied": "Copiado! ✓", "pix.copycode": "Copiar Pix copia-e-cola",
+    "pix.card": "Pagar com cartão de crédito", "pix.card_soon": "Cartão de crédito · em breve",
     "footer.hashtag": "#BrenoETie2026",
     "footer.date": "03 de Outubro de 2026 · Brasília",
     "footer.credit": 'Feito com carinho · Fotos por <a href="#">Frederico Gomes Photography</a>',
@@ -126,7 +133,7 @@ const I18N = {
     "story.b3.p2": "The heart already knew the answer before the question.",
     "story.b4.num": "iv.", "story.b4.tag": "the question",
     "story.b4.h": "“Will you marry me?”",
-    "story.b4.p1": "The sun touched the horizon, a knee touched the ground, and three words changed everything. Against the golden light, a whole future fit into one instant.",
+    "story.b4.p1": "The sun touched the horizon, a knee touched the ground, and two words changed everything. Against the golden light, a whole future fit into one instant.",
     "story.b5.num": "v.", "story.b5.tag": "the yes",
     "story.b5.h": "And the city lights became our witnesses",
     "story.b5.p1": "When night fell, we were no longer two people planning a proposal — we were two people beginning the rest of our lives. Now we want you by our side to celebrate.",
@@ -137,15 +144,18 @@ const I18N = {
     "details.eyebrow": "When & where", "details.title": "The big day",
     "details.ceremony.kicker": "Ceremony", "details.ceremony.name": "Verbo Divino Parish",
     "details.ceremony.addr": "SGAN 609, Module C · L2 Norte<br>Asa Norte · Brasília — DF",
-    "details.reception.kicker": "Reception", "details.reception.name": "Lago Oeste Country Estate",
-    "details.reception.addr": "Rua 4, Chácara 5<br>Lago Oeste · Sobradinho — DF",
+    "details.reception.kicker": "Reception", "details.reception.name": "To be announced",
+    "details.reception.addr": "We'll share the address soon 🤍",
     "details.reception.time": "right after the ceremony",
     "details.map": "Open in maps",
     "dress.kicker": "Dress code", "dress.text": "Formal · cocktail attire",
+    "dress.relax": "Come as you are — we want everyone comfortable.",
     "dress.note": "Take a cue from our colors",
     "rsvp.eyebrow": "RSVP", "rsvp.title": "You're part<br>of this story",
-    "rsvp.lead": "Your presence is our greatest gift. Please confirm by September 15, 2026.",
+    "rsvp.lead": "After so many years sharing a life, the moment has come to celebrate — before the people we love — our commitment to keep choosing each other.<br><br>This wedding is the celebration of our story, of everything we've lived so far and, above all, of everything we still want to build together.<br><br>Nothing would make more sense than living this day surrounded by the people who are part of our lives and who, in some way, are part of our story too.<br><br>Having you with us makes this moment even more special. Please confirm by <strong>September 15, 2026</strong>.",
     "rsvp.name": "Full name", "rsvp.guests": "Number of guests",
+    "rsvp.adults": "How many adults", "rsvp.children": "How many children",
+    "rsvp.ages": "Children's ages", "rsvp.ages_ph": "e.g. 3 and 5 years old",
     "rsvp.attend": "Will you attend?", "rsvp.yes": "Yes, I'll be there!", "rsvp.no": "Sorry, I can't make it",
     "rsvp.submit": "Confirm attendance",
     "rsvp.sending": "Sending...",
@@ -155,7 +165,7 @@ const I18N = {
     "rsvp.fillname": "Please enter your name.",
     "rsvp.notset": "Form not yet connected to the spreadsheet (see GUIA.md).",
     "gifts.eyebrow": "Gifts", "gifts.title": "Our wishlist",
-    "gifts.lead": "All we truly want is to see you at the party. But if you'd like to give us a gift, we picked a few meaningful ones — all via Pix, with love.",
+    "gifts.lead": "Each one of you being here is our greatest gift!<br><br>But if you'd like to give us something, all contributions will go toward our honeymoon. We'll also lovingly welcome any physical gift chosen especially for us.",
     "gifts.give": "Gift this",
     "gift.1.n": "A sunset for two", "gift.1.d": "So we can relive the evening that changed everything.",
     "gift.2.n": "Breakfasts in bed", "gift.2.d": "A month of slow, lazy mornings with no rush.",
@@ -166,9 +176,11 @@ const I18N = {
     "gift.7.n": "A babysitter for date night", "gift.7.d": "So we can sneak away as a couple — while someone keeps the kids busy.",
     "gift.8.n": "The first dance", "gift.8.d": "That song, the two of us spinning, the world on pause.",
     "gift.9.n": "Seasonal flowers", "gift.9.d": "So home never loses the scent of the party.",
-    "gifts.credits": "Illustrative photos: David N Cooper, happyskrappy, Swami Stream, mrlins, Sam Howzit and tdlucas5000 (CC BY) · others public domain (CC0) · via Openverse.",
+    "gift.10.n": "The grand finale", "gift.10.d": "You made it to the big one! 😄 Help us live our dream honeymoon — a photo from the deck over the sea is promised.",
+    "gifts.credits": "Illustrative photos: David N Cooper, happyskrappy, Swami Stream, mrlins, Sam Howzit, tdlucas5000 and MattJP (CC BY) · others public domain (CC0) · via Openverse.",
     "pix.title": "Pix key", "pix.who": "Breno Neiva Machado · Santander",
     "pix.copy": "Copy code", "pix.copied": "Copied! ✓", "pix.copycode": "Copy Pix code",
+    "pix.card": "Pay by credit card", "pix.card_soon": "Credit card · coming soon",
     "footer.hashtag": "#BrenoETie2026",
     "footer.date": "October 3, 2026 · Brasília",
     "footer.credit": 'Made with love · Photos by <a href="#">Frederico Gomes Photography</a>',
@@ -185,6 +197,10 @@ function applyLang(l) {
     const key = el.getAttribute("data-i18n");
     const val = I18N[l][key];
     if (val != null) el.innerHTML = val;
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
+    const val = I18N[l][el.getAttribute("data-i18n-ph")];
+    if (val != null) el.setAttribute("placeholder", val);
   });
   document.querySelectorAll(".lang-toggle span").forEach((s) => {
     s.classList.toggle("active", s.dataset.lang === l);
@@ -366,11 +382,20 @@ function initForm() {
   const form = document.getElementById("rsvp-form");
   const msg = document.getElementById("form-msg");
   const btn = form.querySelector(".btn-submit");
+
+  // mostra "idade das crianças" só quando houver crianças
+  const idadesField = document.getElementById("field-idades");
+  const toggleIdades = () => { idadesField.style.display = parseInt(form.criancas.value, 10) > 0 ? "flex" : "none"; };
+  form.criancas.addEventListener("change", toggleIdades);
+  toggleIdades();
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const data = {
       nome: form.nome.value.trim(),
-      acompanhantes: form.acompanhantes.value,
+      adultos: form.adultos.value,
+      criancas: form.criancas.value,
+      idades: form.idades.value.trim(),
       presenca: (form.querySelector('input[name="presenca"]:checked') || {}).value || "sim",
       lang, ts: new Date().toISOString(),
     };
@@ -406,6 +431,18 @@ function initForm() {
    8. Pix copiar
 ------------------------------------------------------------------ */
 function initPix() {
+  // Botão de cartão de crédito (link ASAAS/Mercado Pago)
+  const cardBtn = document.getElementById("btn-card");
+  if (cardBtn) {
+    if (CONFIG.CARD_URL) {
+      cardBtn.href = CONFIG.CARD_URL;
+    } else {
+      cardBtn.classList.add("soon");
+      cardBtn.setAttribute("data-i18n", "pix.card_soon");
+      cardBtn.innerHTML = I18N[lang]["pix.card_soon"];
+      cardBtn.addEventListener("click", (e) => e.preventDefault());
+    }
+  }
   document.querySelectorAll("[data-copy-pix]").forEach((btn) => {
     btn.addEventListener("click", async () => {
       try {

@@ -200,16 +200,16 @@
         <div class="venue reveal">
           <div class="ico">🌾</div>
           <div class="kicker" data-i18n="details.reception.kicker">Recepção</div>
-          <h3 data-i18n="details.reception.name">Núcleo Rural Lago Oeste</h3>
+          <h3 data-i18n="details.reception.name">Local a ser informado</h3>
           <div class="time" data-i18n="details.reception.time">logo após a cerimônia</div>
           <address data-i18n="details.reception.addr"></address>
-          <a class="btn-map" id="map-venue" target="_blank" rel="noopener" data-i18n="details.map">Ver no mapa</a>
         </div>
       </div>
 
       <div class="dress reveal">
         <div class="kicker" data-i18n="dress.kicker">Traje</div>
         <p data-i18n="dress.text">Traje social · esporte fino</p>
+        <p class="dress-relax" data-i18n="dress.relax">Vá vestido de você! Queremos todos confortáveis.</p>
         <div class="palette-dots" title="">
           <i style="background:var(--sage)"></i>
           <i style="background:var(--orange)"></i>
@@ -229,20 +229,34 @@
         <div class="header-sprig reveal"></div>
         <div class="eyebrow reveal" data-i18n="rsvp.eyebrow">Confirmação</div>
         <h2 class="reveal" data-i18n="rsvp.title">Você faz parte<br>dessa história</h2>
-        <p class="reveal" data-i18n="rsvp.lead"></p>
+        <div class="rsvp-lead reveal" data-i18n="rsvp.lead"></div>
       </div>
       <form class="rsvp-form" id="rsvp-form" novalidate>
         <div class="field">
           <label for="nome" data-i18n="rsvp.name">Nome completo</label>
           <input type="text" id="nome" name="nome" autocomplete="name" required />
         </div>
-        <div class="field">
-          <label for="acompanhantes" data-i18n="rsvp.guests">Número de acompanhantes</label>
-          <select id="acompanhantes" name="acompanhantes">
-            <option value="0">0</option><option value="1">1</option>
-            <option value="2">2</option><option value="3">3</option>
-            <option value="4">4</option><option value="5">5+</option>
-          </select>
+        <div class="field-row">
+          <div class="field">
+            <label for="adultos" data-i18n="rsvp.adults">Quantos adultos</label>
+            <select id="adultos" name="adultos">
+              <option value="1">1</option><option value="2">2</option>
+              <option value="3">3</option><option value="4">4</option>
+              <option value="5">5</option><option value="6">6+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="criancas" data-i18n="rsvp.children">Quantas crianças</label>
+            <select id="criancas" name="criancas">
+              <option value="0">0</option><option value="1">1</option>
+              <option value="2">2</option><option value="3">3</option>
+              <option value="4">4</option><option value="5">5+</option>
+            </select>
+          </div>
+        </div>
+        <div class="field" id="field-idades" style="display:none">
+          <label for="idades" data-i18n="rsvp.ages">Idade das crianças</label>
+          <input type="text" id="idades" name="idades" data-i18n-ph="rsvp.ages_ph" placeholder="ex: 3 e 5 anos" />
         </div>
         <div class="field">
           <label data-i18n="rsvp.attend">Você vai comparecer?</label>
@@ -277,6 +291,7 @@
         <div class="gift-card"><div class="gift-thumb"><img src="assets/img/gifts/gift-babysitter.jpg" alt="" loading="lazy"><span class="gift-emoji">🍿</span></div><div class="gift-body"><h4 data-i18n="gift.7.n"></h4><p data-i18n="gift.7.d"></p><div class="gift-foot"><div class="gift-price">R$ 300</div><button class="gift-btn" data-copy-pix data-i18n="gifts.give">Presentear</button></div></div></div>
         <div class="gift-card"><div class="gift-thumb"><img src="assets/img/gifts/gift-dance.jpg" alt="" loading="lazy"><span class="gift-emoji">💃</span></div><div class="gift-body"><h4 data-i18n="gift.8.n"></h4><p data-i18n="gift.8.d"></p><div class="gift-foot"><div class="gift-price">R$ 180</div><button class="gift-btn" data-copy-pix data-i18n="gifts.give">Presentear</button></div></div></div>
         <div class="gift-card"><div class="gift-thumb"><img src="assets/img/gifts/gift-flowers.jpg" alt="" loading="lazy"><span class="gift-emoji">🌸</span></div><div class="gift-body"><h4 data-i18n="gift.9.n"></h4><p data-i18n="gift.9.d"></p><div class="gift-foot"><div class="gift-price">R$ 70</div><button class="gift-btn" data-copy-pix data-i18n="gifts.give">Presentear</button></div></div></div>
+        <div class="gift-card"><div class="gift-thumb"><img src="assets/img/gifts/gift-jackpot.jpg" alt="" loading="lazy"><span class="gift-emoji">🏆</span></div><div class="gift-body"><h4 data-i18n="gift.10.n"></h4><p data-i18n="gift.10.d"></p><div class="gift-foot"><div class="gift-price">R$ 1.000</div><button class="gift-btn" data-copy-pix data-i18n="gifts.give">Presentear</button></div></div></div>
       </div>
       <p class="gift-credits" data-i18n="gifts.credits"></p>
 
@@ -289,6 +304,7 @@
             <span class="pix-key" id="pix-key">(61) 99626-1957</span>
             <button class="btn-copy" data-copy-pix data-i18n="pix.copycode">Copiar Pix copia-e-cola</button>
           </div>
+          <a class="btn-card" id="btn-card" target="_blank" rel="noopener" data-i18n="pix.card">Pagar com cartão de crédito</a>
         </div>
       </div>
     </div>
@@ -331,8 +347,7 @@
   <script type="module" src="js/main.js"></script>
   <script>
     // set map hrefs (após CONFIG carregar via módulo, usamos valores diretos)
-    document.getElementById("map-church").href = "https://www.google.com/maps/search/?api=1&query=Par%C3%B3quia+do+Verbo+Divino+SGAN+609+Asa+Norte+Bras%C3%ADlia";
-    document.getElementById("map-venue").href = "https://www.google.com/maps/search/?api=1&query=N%C3%BAcleo+Rural+Lago+Oeste+Rua+4+Ch%C3%A1cara+5+Sobradinho+DF";
+    document.getElementById("map-church").href = "https://www.google.com/maps/search/?api=1&query=Par%C3%B3quia+Verbo+Divino+SGAN+609+Asa+Norte+Bras%C3%ADlia";
   </script>
 </body>
 </html>
