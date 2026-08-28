@@ -411,12 +411,14 @@ form.rsvp-form { display: grid; gap: 1.3rem; }
 .gift-price { font-family: var(--font-display); font-size: 1.5rem; color: var(--sage); }
 .gift-btn {
   cursor:pointer; border: 1px solid var(--tomato); color: var(--tomato); background:none;
+  display:inline-block; text-align:center; text-decoration:none;
   border-radius: 100px; padding: .5rem 1.05rem; white-space: nowrap;
   font-family: var(--font-sans); font-size:.64rem; letter-spacing:.14em; text-transform:uppercase;
   transition: all .3s var(--ease);
 }
 .gift-btn:hover { background: var(--tomato); color: #fff; }
-.gift-credits { text-align:center; margin-top:1.8rem; font-size:.7rem; color: var(--ink-soft); opacity:.75; line-height:1.6; }
+.gift-paynote { text-align:center; margin-top:1.8rem; font-size:.92rem; color: var(--ink-soft); }
+.gift-credits { text-align:center; margin-top:.8rem; font-size:.7rem; color: var(--ink-soft); opacity:.75; line-height:1.6; }
 
 .pix-panel {
   background: var(--white); border: 1px solid var(--line); border-radius: 6px;

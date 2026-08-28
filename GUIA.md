@@ -56,21 +56,28 @@ Já está pronta (`assets/music.mp3`). Toca ao primeiro clique/toque na página
 (navegadores bloqueiam autoplay). O botão redondo no canto liga/desliga.
 Para trocar, basta substituir o arquivo `assets/music.mp3`.
 
-### 3) Cartão de crédito 💳 (já ativo)
-O botão "Pagar com cartão de crédito" já está ligado ao seu link do Mercado Pago
-(valor aberto): `CONFIG.CARD_URL` em `js/main.js` =
-`https://link.mercadopago.com.br/tiebreno`. Aceita cartão parcelado, Pix e boleto.
+### 3) Pagamento dos presentes 💳 (pronto)
+Cada botão **"Presentear"** abre direto o **link de pagamento do Mercado Pago com o
+valor já preenchido** — o convidado escolhe **cartão (parcelável) ou Pix** na tela do
+MP. Não há mais chave Pix na página; é só clicar e pagar.
 
-⚠️ **Testado:** esse link de **valor aberto NÃO aceita valor pela URL** (parâmetros
-como `?amount=` são ignorados). Por isso o convidado **digita o valor** do presente
-na tela do Mercado Pago (há uma nota no site avisando isso).
+Links de valor fixo usados (em `index.html`, um por presente):
 
-**Se quiser que o valor já venha preenchido** (melhor experiência), crie no app do
-Mercado Pago **um link de valor fixo para cada preço** (R$70, R$100, R$160, R$180,
-R$200, R$240, R$300, R$500, R$600, R$1.000) e me mande as URLs — aí cada botão de
-presente abre o link com o valor certo. (Mais trabalho de setup, mas fica redondo.)
+| Presente | Valor | Link |
+|---|---|---|
+| Pôr do sol | R$100 | mpago.la/1wLFbCk |
+| Café na cama | R$160 | mpago.la/1Gy7bJb |
+| Jantar | R$240 | mpago.la/2aMmp7U |
+| Lua de mel | R$500 | mpago.la/1ZzkVXC |
+| Praia | R$600 | mpago.la/1SunZHN |
+| Brinde | R$200 | mpago.la/2gFeStD |
+| Babá/date night | R$300 | mpago.la/1KF5dTR |
+| Primeira dança | R$180 | mpago.la/1BJjVrq |
+| Flores | R$70 | mpago.la/1rcEbgP |
+| Chefão (jackpot) | R$1.000 | mpago.la/1TuFMm3 |
 
-O Pix continua sem taxa; o cartão tem taxa por transação do Mercado Pago.
+Para trocar/adicionar um valor: crie o link no app do Mercado Pago e edite o `href`
+do botão correspondente em `index.html`.
 
 ### 4) Horário da recepção ⏰
 Está como **"logo após a cerimônia"**. Quando tiver o horário, edite em
