@@ -72,9 +72,15 @@ Links de valor fixo usados (em `index.html`, um por presente):
 | Praia | R$600 | mpago.la/1SunZHN |
 | Brinde | R$200 | mpago.la/2gFeStD |
 | Babá/date night | R$300 | mpago.la/1KF5dTR |
-| Primeira dança | R$180 | mpago.la/1BJjVrq |
+| Primeira dança | R$400 | ⚠️ link de valor aberto (falta o fixo) |
 | Flores | R$70 | mpago.la/1rcEbgP |
+| Suborno pro sol | R$250 | ⚠️ link de valor aberto (falta o fixo) |
 | Chefão (jackpot) | R$1.000 | mpago.la/1TuFMm3 |
+
+⚠️ **Faltam 2 links fixos:** os presentes de **R$400** e **R$250** estão apontando
+pro link de valor aberto (o convidado digita o valor). Crie no Mercado Pago um link
+de **valor fixo R$400** e outro de **R$250** e me mande as URLs — aí eu troco o `href`
+desses dois botões pra ficar 100% automático. (O link antigo de R$180 saiu.)
 
 Para trocar/adicionar um valor: crie o link no app do Mercado Pago e edite o `href`
 do botão correspondente em `index.html`.
