@@ -12,12 +12,14 @@
  *    js/main.js → CONFIG.RSVP_ENDPOINT.
  * ------------------------------------------------------------
  */
+var SHEET_ID = '1hhllERzPPCWkAdw5O_e6sJRNgWRwNCZ64xnGW562dqA';
+
 function doPost(e) {
   var lock = LockService.getScriptLock();
   lock.waitLock(30000);
   try {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('RSVP')
-             || SpreadsheetApp.getActiveSpreadsheet().insertSheet('RSVP');
+    var ss = SpreadsheetApp.openById(SHEET_ID);
+    var sheet = ss.getSheetByName('RSVP') || ss.insertSheet('RSVP');
 
     // Cabeçalho na primeira vez
     if (sheet.getLastRow() === 0) {
@@ -49,4 +51,15 @@ function doPost(e) {
 
 function doGet() {
   return ContentService.createTextOutput('RSVP endpoint ok');
+}
+
+// Rode esta função UMA vez no editor (botão Executar) para autorizar
+// o acesso à planilha e conferir se a gravação funciona.
+function testar() {
+  var ss = SpreadsheetApp.openById(SHEET_ID);
+  var sheet = ss.getSheetByName('RSVP') || ss.insertSheet('RSVP');
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(['Data/Hora', 'Nome', 'Adultos', 'Crianças', 'Idade das crianças', 'Presença', 'Idioma']);
+  }
+  sheet.appendRow([new Date(), 'TESTE pelo editor (pode apagar)', '2', '1', '5 anos', 'Confirmado', 'pt']);
 }

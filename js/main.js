@@ -13,7 +13,7 @@ const ScrollTrigger = window.ScrollTrigger;
 ------------------------------------------------------------------ */
 const CONFIG = {
   // Cole aqui a URL do seu Google Apps Script (ver GUIA.md). Deixe "" para desativar o envio real.
-  RSVP_ENDPOINT: "",
+  RSVP_ENDPOINT: "https://script.google.com/macros/s/AKfycbz1uhKYtTLQdpztwHp_POSiCm2Cz4dXMXTWlrlGXvIwsOJVmA9o7GleV6Sn26Zi1klT/exec",
   // Data/hora da cerimônia (horário de Brasília, UTC-3)
   WEDDING_DATE: "2026-10-03T15:00:00-03:00",
   // Links de mapa
