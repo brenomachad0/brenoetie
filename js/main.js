@@ -15,7 +15,7 @@ const CONFIG = {
   // Cole aqui a URL do seu Google Apps Script (ver GUIA.md). Deixe "" para desativar o envio real.
   RSVP_ENDPOINT: "https://script.google.com/macros/s/AKfycbz1uhKYtTLQdpztwHp_POSiCm2Cz4dXMXTWlrlGXvIwsOJVmA9o7GleV6Sn26Zi1klT/exec",
   // Data/hora da cerimônia (horário de Brasília, UTC-3)
-  WEDDING_DATE: "2026-10-03T15:00:00-03:00",
+  WEDDING_DATE: "2026-10-03T14:30:00-03:00",
   // Links de mapa
   MAP_CHURCH: "https://www.google.com/maps/search/?api=1&query=Par%C3%B3quia+do+Verbo+Divino+SGAN+609+Asa+Norte+Bras%C3%ADlia",
   MAP_VENUE: "https://www.google.com/maps/search/?api=1&query=N%C3%BAcleo+Rural+Lago+Oeste+Rua+4+Ch%C3%A1cara+5+Sobradinho+DF",
