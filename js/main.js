@@ -7,6 +7,10 @@ import { initFloral } from "./flora.js";
 const { gsap } = window;
 gsap.registerPlugin(window.ScrollTrigger);
 const ScrollTrigger = window.ScrollTrigger;
+// Evita recálculos a cada mudança da barra de endereço no celular
+ScrollTrigger.config({ ignoreMobileResize: true });
+// Celular/touch: modo leve (sem WebGL, sem scroll suave, sem parallax "scrub")
+const IS_TOUCH = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 820;
 
 /* ------------------------------------------------------------------
    1. CONFIG — ajuste rápido
@@ -275,11 +279,13 @@ function initAnimations() {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce) { gsap.set(".reveal", { opacity: 1 }); return; }
 
-  // Hero: parallax do fundo + entrada dos títulos
-  gsap.to(".hero-bg img", {
-    yPercent: 18, scale: 1.22, ease: "none",
-    scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
-  });
+  // Hero: parallax do fundo (só desktop — no celular é pesado demais) + entrada dos títulos
+  if (!IS_TOUCH) {
+    gsap.to(".hero-bg img", {
+      yPercent: 18, scale: 1.22, ease: "none",
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
+    });
+  }
 
   const heroTl = gsap.timeline({ delay: 0.2 });
   heroTl.from(".hero-eyebrow", { yPercent: 120, opacity: 0, duration: 1, ease: "power3.out" })
@@ -293,7 +299,7 @@ function initAnimations() {
   gsap.utils.toArray(".reveal").forEach((el) => {
     gsap.fromTo(el, { opacity: 0, y: 40 }, {
       opacity: 1, y: 0, duration: 1, ease: "power3.out",
-      scrollTrigger: { trigger: el, start: "top 85%" },
+      scrollTrigger: { trigger: el, start: "top 85%", once: true },
     });
   });
 
@@ -307,17 +313,23 @@ function initAnimations() {
   gsap.utils.toArray(".beat").forEach((beat) => {
     const img = beat.querySelector(".beat-media img");
     const media = beat.querySelector(".beat-media");
-    gsap.fromTo(img, { yPercent: -12 }, {
-      yPercent: 12, ease: "none",
-      scrollTrigger: { trigger: beat, start: "top bottom", end: "bottom top", scrub: true },
-    });
-    gsap.from(media, {
-      clipPath: "inset(100% 0% 0% 0%)", duration: 1.2, ease: "power3.out",
-      scrollTrigger: { trigger: beat, start: "top 78%" },
-    });
+    if (!IS_TOUCH) {
+      gsap.fromTo(img, { yPercent: -12 }, {
+        yPercent: 12, ease: "none",
+        scrollTrigger: { trigger: beat, start: "top bottom", end: "bottom top", scrub: true },
+      });
+      gsap.from(media, {
+        clipPath: "inset(100% 0% 0% 0%)", duration: 1.2, ease: "power3.out",
+        scrollTrigger: { trigger: beat, start: "top 78%", once: true },
+      });
+    } else {
+      gsap.set(img, { scale: 1 }); // sem zoom extra no celular
+      gsap.from(media, { opacity: 0, y: 24, duration: 0.8, ease: "power2.out",
+        scrollTrigger: { trigger: beat, start: "top 85%", once: true } });
+    }
     gsap.from(beat.querySelectorAll(".beat-text > *"), {
       opacity: 0, y: 34, stagger: 0.12, duration: 0.9, ease: "power3.out",
-      scrollTrigger: { trigger: beat, start: "top 72%" },
+      scrollTrigger: { trigger: beat, start: "top 72%", once: true },
     });
   });
 
@@ -348,12 +360,15 @@ function initAnimations() {
   // Flores — desabrocham ao entrar na tela
   gsap.utils.toArray(".floral-divider, .header-sprig").forEach((el) => {
     gsap.from(el, { opacity: 0, y: 14, duration: 0.7, ease: "power2.out",
-      scrollTrigger: { trigger: el, start: "top 92%" } });
-    gsap.from(el.querySelectorAll(".petal-el"), {
-      scale: 0, opacity: 0, transformOrigin: "50% 50%",
-      stagger: 0.01, duration: 0.5, ease: "back.out(2.4)",
-      scrollTrigger: { trigger: el, start: "top 90%" },
-    });
+      scrollTrigger: { trigger: el, start: "top 92%", once: true } });
+    // o "pop" pétala a pétala cria dezenas de tweens — só no desktop
+    if (!IS_TOUCH) {
+      gsap.from(el.querySelectorAll(".petal-el"), {
+        scale: 0, opacity: 0, transformOrigin: "50% 50%",
+        stagger: 0.01, duration: 0.5, ease: "back.out(2.4)",
+        scrollTrigger: { trigger: el, start: "top 90%", once: true },
+      });
+    }
   });
 
   // Buquês do hero
@@ -538,11 +553,13 @@ window.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  // Pétalas em WebGL só no desktop — no celular derrubava a aba ao rolar rápido
   const canvas = document.getElementById("petals-canvas");
-  if (canvas) initPetals(canvas);
+  if (canvas && !IS_TOUCH) initPetals(canvas);
+  else if (canvas) canvas.remove();
 
   initPreloader(() => {
-    initSmooth();
+    if (!IS_TOUCH) initSmooth(); // celular usa scroll nativo
     initAnimations();
     ScrollTrigger.refresh();
   });
