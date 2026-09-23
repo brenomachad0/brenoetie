@@ -81,6 +81,9 @@ const I18N = {
     "rsvp.lead": "Depois de tantos anos dividindo a vida, chegou o momento de celebrar diante das pessoas que amamos o compromisso de continuar escolhendo um ao outro.<br><br>Este casamento é a celebração da nossa história, de tudo o que vivemos até aqui e, principalmente, de tudo o que ainda queremos construir juntos.<br><br>Nada faria mais sentido do que viver esse dia cercados por pessoas que fazem parte da nossa vida e que, de alguma forma, também fazem parte da nossa história.<br><br>Ter vocês conosco torna este momento ainda mais especial. Por favor, confirme até <strong>15 de setembro de 2026</strong>.",
     "rsvp.name": "Nome completo", "rsvp.guests": "Número de acompanhantes",
     "rsvp.adults": "Quantos adultos", "rsvp.children": "Quantas crianças",
+    "rsvp.plusone": "Vai levar acompanhante?", "rsvp.solo": "Só eu", "rsvp.plus1": "Eu + 1 acompanhante",
+    "rsvp.plusname": "Nome do acompanhante", "rsvp.fillplus": "Por favor, informe o nome do acompanhante.",
+    "rsvp.limit": "Cada convite vale para você + 1 acompanhante.",
     "rsvp.ages": "Idade das crianças", "rsvp.ages_ph": "ex: 3 e 5 anos",
     "rsvp.attend": "Você vai comparecer?", "rsvp.yes": "Sim, eu vou!", "rsvp.no": "Não poderei ir",
     "rsvp.submit": "Confirmar presença",
@@ -163,6 +166,9 @@ const I18N = {
     "rsvp.lead": "After so many years sharing a life, the moment has come to celebrate — before the people we love — our commitment to keep choosing each other.<br><br>This wedding is the celebration of our story, of everything we've lived so far and, above all, of everything we still want to build together.<br><br>Nothing would make more sense than living this day surrounded by the people who are part of our lives and who, in some way, are part of our story too.<br><br>Having you with us makes this moment even more special. Please confirm by <strong>September 15, 2026</strong>.",
     "rsvp.name": "Full name", "rsvp.guests": "Number of guests",
     "rsvp.adults": "How many adults", "rsvp.children": "How many children",
+    "rsvp.plusone": "Bringing a plus-one?", "rsvp.solo": "Just me", "rsvp.plus1": "Me + 1 guest",
+    "rsvp.plusname": "Plus-one's name", "rsvp.fillplus": "Please enter your plus-one's name.",
+    "rsvp.limit": "Each invitation is for you + 1 guest.",
     "rsvp.ages": "Children's ages", "rsvp.ages_ph": "e.g. 3 and 5 years old",
     "rsvp.attend": "Will you attend?", "rsvp.yes": "Yes, I'll be there!", "rsvp.no": "Sorry, I can't make it",
     "rsvp.submit": "Confirm attendance",
@@ -406,24 +412,32 @@ function initForm() {
   const msg = document.getElementById("form-msg");
   const btn = form.querySelector(".btn-submit");
 
-  // mostra "idade das crianças" só quando houver crianças
-  const idadesField = document.getElementById("field-idades");
-  const toggleIdades = () => { idadesField.style.display = parseInt(form.criancas.value, 10) > 0 ? "flex" : "none"; };
-  form.criancas.addEventListener("change", toggleIdades);
-  toggleIdades();
+  // limite: convidado + no máximo 1 acompanhante
+  const acompField = document.getElementById("field-acomp");
+  const toggleAcomp = () => { acompField.style.display = form.acomp.value === "1" ? "flex" : "none"; };
+  form.acomp.addEventListener("change", toggleAcomp);
+  toggleAcomp();
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    const nome = form.nome.value.trim();
+    const temAcomp = form.acomp.value === "1";
+    const acompNome = form.acompNome.value.trim();
+    const presenca = (form.querySelector('input[name="presenca"]:checked') || {}).value || "sim";
+    msg.className = "form-msg";
+    if (!nome) { msg.textContent = I18N[lang]["rsvp.fillname"]; msg.classList.add("err"); return; }
+    if (temAcomp && presenca === "sim" && !acompNome) {
+      msg.textContent = I18N[lang]["rsvp.fillplus"]; msg.classList.add("err"); return;
+    }
+    const levaAcomp = temAcomp && presenca === "sim";
     const data = {
-      nome: form.nome.value.trim(),
-      adultos: form.adultos.value,
-      criancas: form.criancas.value,
-      idades: form.idades.value.trim(),
-      presenca: (form.querySelector('input[name="presenca"]:checked') || {}).value || "sim",
+      nome: levaAcomp ? `${nome} + ${acompNome}` : nome,
+      adultos: presenca === "sim" ? (levaAcomp ? "2" : "1") : "0",
+      criancas: "0",
+      idades: "",
+      presenca,
       lang, ts: new Date().toISOString(),
     };
-    msg.className = "form-msg";
-    if (!data.nome) { msg.textContent = I18N[lang]["rsvp.fillname"]; msg.classList.add("err"); return; }
 
     if (!CONFIG.RSVP_ENDPOINT) {
       msg.textContent = I18N[lang]["rsvp.notset"]; msg.classList.add("err");

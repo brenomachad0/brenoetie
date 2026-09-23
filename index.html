@@ -245,28 +245,18 @@
           <label for="nome" data-i18n="rsvp.name">Nome completo</label>
           <input type="text" id="nome" name="nome" autocomplete="name" required />
         </div>
-        <div class="field-row">
-          <div class="field">
-            <label for="adultos" data-i18n="rsvp.adults">Quantos adultos</label>
-            <select id="adultos" name="adultos">
-              <option value="1">1</option><option value="2">2</option>
-              <option value="3">3</option><option value="4">4</option>
-              <option value="5">5</option><option value="6">6+</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="criancas" data-i18n="rsvp.children">Quantas crianças</label>
-            <select id="criancas" name="criancas">
-              <option value="0">0</option><option value="1">1</option>
-              <option value="2">2</option><option value="3">3</option>
-              <option value="4">4</option><option value="5">5+</option>
-            </select>
-          </div>
+        <div class="field">
+          <label for="acomp" data-i18n="rsvp.plusone">Vai levar acompanhante?</label>
+          <select id="acomp" name="acomp">
+            <option value="0" data-i18n="rsvp.solo">Só eu</option>
+            <option value="1" data-i18n="rsvp.plus1">Eu + 1 acompanhante</option>
+          </select>
         </div>
-        <div class="field" id="field-idades" style="display:none">
-          <label for="idades" data-i18n="rsvp.ages">Idade das crianças</label>
-          <input type="text" id="idades" name="idades" data-i18n-ph="rsvp.ages_ph" placeholder="ex: 3 e 5 anos" />
+        <div class="field" id="field-acomp" style="display:none">
+          <label for="acompNome" data-i18n="rsvp.plusname">Nome do acompanhante</label>
+          <input type="text" id="acompNome" name="acompNome" autocomplete="off" />
         </div>
+        <p class="rsvp-note" data-i18n="rsvp.limit">Cada convite vale para você + 1 acompanhante.</p>
         <div class="field">
           <label data-i18n="rsvp.attend">Você vai comparecer?</label>
           <div class="radio-row">
